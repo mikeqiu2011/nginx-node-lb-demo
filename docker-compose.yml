@@ -4,7 +4,6 @@ services:
   web:
     build:
       context: ./nginx
-      # dockerfile: nginx.Dockerfile
     image: nginx-lb
     ports:
       - "80:80"
@@ -14,7 +13,6 @@ services:
   node1:
     build:
       context: ./node
-      # dockerfile: node.Dockerfile
     image: node-lb
     environment:
       - MESSAGE="from node1"
