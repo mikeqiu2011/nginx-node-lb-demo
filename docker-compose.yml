@@ -1,6 +1,14 @@
 version: "2"
 
 services:
+  web:
+    build:
+      context: .
+      dockerfile: nginx.Dockerfile
+    image: nginx-lb
+    ports:
+      - "80:80"
+
   node1:
     build:
       context: .
@@ -20,13 +28,6 @@ services:
       - MESSAGE="from node2"
     ports:
       - "8082:3000"
-    # web:
-  #   build:
-  #     context: .
-  #     dockerfile: nginx.Dockerfile
-  #   image: nginx-lb
-  #   ports:
-  #     - "80:80"
 # networks:
 #   mynetwork:
 #     driver: bridge
