@@ -7,8 +7,8 @@ services:
     image: nginx-lb
     ports:
       - "80:80"
-    networks:
-      - mynetwork
+    # networks:
+    #   - mynetwork
 
   node1:
     build:
@@ -16,16 +16,30 @@ services:
     image: node-lb
     environment:
       - MESSAGE="from node1"
-    networks:
-      - mynetwork
+    # networks:
+    #   - mynetwork
 
   node2:
     image: node-lb
     environment:
       - MESSAGE="from node2"
-    networks:
-      - mynetwork
+#     networks:
+#       - mynetwork
 
-networks:
-  mynetwork:
-    driver: bridge
+#   db:
+#     image: mysql:5.7
+#     environment:
+#       - MYSQL_DATABASE=my-db
+#       - MYSQL_USER=user
+#       - MYSQL_PASSWORD=password
+#       - MYSQL_ROOT_PASSWORD=root
+#     volumes:
+#       - ./db-data:/var/lib/mysql
+#     ports:
+#       - "3307:3306"
+#     networks:
+#       - mynetwork
+
+# networks:
+#   mynetwork:
+#     driver: bridge
